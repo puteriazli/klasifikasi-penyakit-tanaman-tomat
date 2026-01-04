@@ -1,0 +1,223 @@
+/* Kontainer utama */
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #A9B388;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    background-color: #fffadd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Judul */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #1e3006;
+}
+
+/* Preview gambar */
+.image-preview {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.image-preview img {
+    border-radius: 12px;
+    
+    border: 1px solid #6a8042;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Hasil Prediksi (box utama) */
+.prediction-main-text {
+    max-width: 40%;
+    border: 1px solid #A9B388;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 20px auto;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    font-family: "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Baris hasil prediksi */
+.prediction-row {
+    display: grid;
+    grid-template-columns: 200px 20px 1fr;
+    align-items: baseline;
+}
+.label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05rem;
+}
+.separator {
+    font-weight: bold;
+    color: #888;
+}
+.value {
+    background: #f4faff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #1a2a3a;
+    font-size: 1rem;
+}
+
+/* Tombol toggle */
+#toggle-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    background-color: #1e3006;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    width: auto;
+}
+#toggle-button:hover {
+    background-color: #ed7a13;
+}
+
+/* Divider section */
+.section-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 40px 0;
+}
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid #5F6F52;
+}
+.section-divider:not(:empty)::before {
+    margin-right: 15px;
+}
+.section-divider:not(:empty)::after {
+    margin-left: 15px;
+}
+.divider-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: #fdfdfd;
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Container gambar tahapan */
+.image-steps {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+/* Kartu gambar */
+.image-card {
+    background: #fff;
+    border: 1px solid #6a8042;
+    border-radius: 16px;
+    padding: 16px;
+    max-width: 150px;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.image-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+}
+.image-card img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 8px;
+    transition: transform 0.3s ease;
+}
+.image-card img:hover {
+    transform: scale(1.05);
+}
+.image-label {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 6px;
+}
+
+/* Tabel hasil fitur */
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+table {
+    width: 70%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+th {
+    background-color: #A9B388;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #ddd;
+    transition: 0.3s;
+}
+
+/* Tombol kembali */
+.back-button {
+    display: block;
+    width: 150px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    background: #1e3006;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.back-button:hover {
+    background: #ed7a13;
+}

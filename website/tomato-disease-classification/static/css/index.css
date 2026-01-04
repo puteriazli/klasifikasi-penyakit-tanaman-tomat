@@ -1,0 +1,294 @@
+/* Wrapper utama */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #A9B388;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container utama */
+.container {
+    background-color: #fffadd;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Judul halaman */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #1e3006;
+}
+
+/* Paragraf */
+p {
+    margin: 10px 0;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Logo */
+.logo img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Input file */
+input[type="file"]{
+    padding: 10px;
+    /* background-color: #ffe787;*/
+    background-color: #fffadd;
+    border: 1.5px solid #6a8042;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 300px;
+}
+
+/* Input text */
+input[type="text"] {
+    padding: 10px;
+    background-color: #fffadd;
+    border: 1.5px solid #6a8042;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 360px;
+}
+
+/* Tombol Prediksi */
+button {
+    background-color: #1e3006;
+    font-size: 14px;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+}
+button:hover {
+    background-color: #ed7a13;
+}
+
+/* Container input + tombol kamera */
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Label Deskripsi Gambar */
+.warning-input-container label {
+    margin-bottom: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    color: #333;
+    justify-content: left;
+}
+.warning-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+/* Tombol Kamera */
+.camera-button {
+    background-color: #1e3006;
+    font-size: 20px;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+}
+.camera-button:hover {
+    background-color: #ed7a13;
+}
+.camera-button.active {
+    background-color: #f44336;
+}
+
+/* Tombol Riwayat */
+.history-button {
+    background: none !important;
+    border: none;
+    color: #1e3006;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    width: 30px;
+    margin-right: -35px;
+}
+.history-button:hover,
+.history-button:focus {
+    background: none !important;
+    outline: none;
+    color: #ed7a13;
+}
+
+/* Link Riwayat */
+.history-link {
+    text-decoration: none;
+}
+
+/* Video & Canvas (disembunyikan dulu) */
+video, canvas {
+    display: none;
+}
+
+/* Footer */
+.footer {
+    color: #1e3006;
+    padding: 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    margin-bottom: 3px;
+}
+.footer-content p {
+    margin: 2px 0;
+    font-size: 12px;
+}
+.footer-icons {
+    margin-top: 5px;
+}
+.footer-icons a {
+    color: #1e3006;
+    margin: 0 5px;
+    font-size: 20px;
+    transition: transform 0.2s, color 0.3s;
+}
+.footer-icons a:hover {
+    color: #1e3006;
+    font-size: 28px;
+    transform: scale(1.2);
+}
+
+/* Modal Tentang Website */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    font-family: 'Poppins', sans-serif;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Tombol Info */
+.info-button {
+    background: none !important;
+    border: none;
+    color: #1e3006;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    width: 30px;
+    margin-left: -35px;
+}
+.info-button:hover,
+.info-button:focus {
+    background: none !important;
+    outline: none;
+    color: #ed7a13;
+}
+
+/* Posisi tombol history & info di tengah */
+.center-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Accordion dalam modal */
+.accordion {
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.accordion:hover {
+    background-color: #ddd;
+}
+.panel {
+    padding: 0 15px;
+    display: none;
+    overflow: hidden;
+    background-color: #fafafa;
+    border-left: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0 0 5px 5px;
+    text-align: justify;
+}
+.panel ol {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+.panel li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
