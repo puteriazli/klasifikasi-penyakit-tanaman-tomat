@@ -1,0 +1,94 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi</title>
+    <link rel="stylesheet" href="/static/css/results.css">
+    <script>
+        function toggleSection(sectionId, buttonId) {
+            var section = document.getElementById(sectionId);
+            var button = document.getElementById(buttonId);
+            if (section.style.display === "none") {
+                section.style.display = "block";
+                button.innerHTML = "Sembunyikan Hasil Pengolahan";
+            } else {
+                section.style.display = "none";
+                button.innerHTML = "Tampilkan Hasil Pengolahan";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Prediksi</h1>
+        <div class="image-preview">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Gambar Diupload" style="max-width:20%;">
+        </div>
+        <div class="prediction-main-text">
+    <div class="prediction-row">
+        <span class="label">Keterangan / Deskripsi</span>
+        <span class="separator">:</span>
+        <span class="value">{{ description }}</span>
+    </div>
+
+    <div class="prediction-row">
+        <span class="label">Hasil Prediksi</span>
+        <span class="separator">:</span>
+        <span class="value">{{ prediction }}</span>
+    </div>
+</div>
+
+        <button id="toggle-button" onclick="toggleSection('processing-section', 'toggle-button')">Tampilkan Hasil Pengolahan</button>
+
+        <div id="processing-section" style="display:none;">
+            <div>
+                <div class="section-divider">
+                    <span class="divider-text">⬇️ Gambar Tahapan Pengolahan ⬇️</span>
+                </div>
+                <!-- Kolom Preprocessing -->
+                <div class="history-container">
+                    <div class="image-steps">
+                        <div class="image-card">
+                            <p class="image-label"><strong>Resized Image</strong></p>
+                            <img src="{{ url_for('static', filename='uploads/' + preprocessing_images['resized']) }}" alt="Resized">
+                        </div>
+                        <div class="image-card">
+                            <p class="image-label"><strong>HSV Image</strong></p>
+                            <img src="{{ url_for('static', filename='uploads/' + preprocessing_images['hsv']) }}" alt="HSV">
+                        </div>
+                        <div class="image-card">
+                            <p class="image-label"><strong>Segmentasi</strong></p>
+                            <img src="{{ url_for('static', filename='uploads/' + preprocessing_images['mask']) }}" alt="Mask">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="section-divider">
+                <span class="divider-text">⬇️ Ekstraksi Fitur ⬇️</span>
+            </div>
+            <div class="table-container">
+                <table id="feature-table">
+                    <tr>
+                        <th>No</th>
+                        <th>Fitur</th>
+                        <th>Nilai</th>
+                    </tr>
+                    {% for i in range(feature_names|length) %}
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ feature_names[i] }}</td>
+                        <td>{{ features[i] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <a class="back-button" href="/">Kembali ke Beranda</a>
+    </div>
+</body>
+</html>

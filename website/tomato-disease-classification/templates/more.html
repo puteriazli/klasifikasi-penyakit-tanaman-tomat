@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selengkapnya - {{ category }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/more.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Riwayat Lengkap: {{ category }}</h1>
+
+        <!-- ✅ Filter Box -->
+        <div class="filter-box">
+            <label for="start-date">Mulai:</label>
+            <input type="date" id="start-date">
+
+            <label for="end-date">Akhir:</label>
+            <input type="date" id="end-date">
+
+            <button onclick="filterByDate()" title="Filter">
+                <i data-feather="filter"></i>
+                <span>Filter</span>
+            </button>
+            <button onclick="resetFilter()" title="Reset">
+                <i data-feather="rotate-ccw"></i>
+                <span>Reset</span>
+            </button>
+        </div>
+
+        <!-- ✅ Semua Data Riwayat -->
+        <div class="history-container">
+            {% for item in history %}
+                <div class="history-card" 
+                     id="history-{{ item.id }}" 
+                     data-date="{{ item.filter_date }}">
+                     
+                    <button class="delete-btn" onclick="deleteHistory('{{ item.id }}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+
+                    <a href="{{ url_for('details', filename=item.filename) }}">
+                        <img src="{{ item.file_path }}" alt="Gambar {{ category }}">
+                    </a>
+
+                    <p>{{ item.display_date }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a href="{{ url_for('history') }}" class="back-button">Kembali ke Riwayat</a>
+    </div>
+
+    <script>
+    // ✅ Hapus riwayat
+    function deleteHistory(id) {
+        if (confirm("Apakah Anda yakin ingin menghapus riwayat ini?")) {
+            fetch(`/delete_history/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    let historyElement = document.getElementById(`history-${id}`);
+                    if (historyElement) {
+                        historyElement.remove();
+                    }
+                } else {
+                    alert("Gagal menghapus riwayat.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    }
+
+    // ✅ Filter riwayat berdasarkan tanggal
+    function filterByDate() {
+        let startDate = document.getElementById("start-date").value;
+        let endDate = document.getElementById("end-date").value;
+        let cards = document.querySelectorAll(".history-container .history-card");
+
+        cards.forEach(card => {
+            let cardDate = card.getAttribute("data-date"); // format: YYYY-MM-DD
+            if ((!startDate || cardDate >= startDate) && (!endDate || cardDate <= endDate)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    // ✅ Reset filter
+    function resetFilter() {
+        document.getElementById("start-date").value = "";
+        document.getElementById("end-date").value = "";
+        let cards = document.querySelectorAll(".history-container .history-card");
+        cards.forEach(card => {
+            card.style.display = "block";
+        });
+    }
+
+    feather.replace();
+    </script>
+
+</body>
+</html>

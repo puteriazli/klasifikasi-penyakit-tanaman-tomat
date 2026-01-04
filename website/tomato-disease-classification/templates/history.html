@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riwayat Prediksi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Riwayat Prediksi Penyakit Daun Tomat</h1>
+      <hr />
+
+      <!-- Accordion Semua Riwayat -->
+      <button class="accordion-btn" onclick="toggleAccordion('all-history-section')">
+        <span>Semua Riwayat</span>
+        <i data-feather="chevron-down"></i>
+      </button>
+      <div class="accordion-content" id="all-history-section">
+        <!-- Filter Tanggal -->
+        <div class="history-container" id="all-history-container">
+          <div class="filter-box">
+            <label for="start-date">Mulai:</label>
+            <input type="date" id="start-date" />
+
+            <label for="end-date">Akhir:</label>
+            <input type="date" id="end-date" />
+
+            <button onclick="filterByDate()" title="Filter">
+              <i data-feather="filter"></i>
+              <span>Filter</span>
+            </button>
+            <button onclick="resetFilter()" title="Reset">
+              <i data-feather="rotate-ccw"></i>
+              <span>Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Semua Data Riwayat -->
+        <div class="history-container" id="all-history-container">
+          {% for item in all_history %}
+            <div class="history-card" id="history-{{ item.id }}" data-date="{{ item.filter_date }}">
+              <button class="delete-btn" onclick="deleteHistory('{{ item.id }}')"><i class="fas fa-trash"></i></button>
+              <a href="{{ url_for('details', filename=item.filename) }}"><img src="{{ item.file_path }}" alt="{{ item.filename }}" /></a>
+              <p>{{ item.category }}</p>
+              <small>{{ item.display_date }}</small>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Accordion Per Kategori -->
+      <button class="accordion-btn" onclick="toggleAccordion('category-history-section')">
+        <span>Riwayat Per Kategori Penyakit</span>
+        <i data-feather="chevron-down" class="accordion-icon"></i>
+      </button>
+      <div class="accordion-content" id="category-history-section">
+        {% for category, data in categorized_history.items() %}
+          <div class="category">
+            <button class="drop-down-btn" onclick="toggleAccordion('dropdown-{{ loop.index }}')">{{ category }} <i data-feather="chevron-down"></i></button>
+            <div class="drop-down-content" id="dropdown-{{ loop.index }}">
+              <div class="history-container">
+                {% for item in data.latest %}
+                  <div class="history-card" id="history-{{ item.id }}">
+                    <button class="delete-btn" onclick="deleteHistory('{{ item.id }}')"><i class="fas fa-trash"></i></button>
+                    <a href="{{ url_for('details', filename=item.filename) }}"><img src="{{ item.file_path }}" alt="Gambar {{ category }}" /></a>
+                    <p>{{ item.date }}</p>
+                  </div>
+                {% endfor %}
+                {% if data.more %}
+                  <a href="{{ url_for('more', category=category) }}" class="more-button"><span>Selengkapnya</span></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <a href="{{ url_for('index') }}" class="back-button">Kembali ke Beranda</a>
+    </div>
+
+    <script>
+      function toggleAccordion(id) {
+        let content = document.getElementById(id)
+        content.classList.toggle('open')
+      }
+      
+      function deleteHistory(id) {
+        if (confirm('Apakah Anda yakin ingin menghapus riwayat ini?')) {
+          fetch(`/delete_history/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                document.querySelectorAll(`#history-${id}`).forEach((elem) => elem.remove())
+              } else {
+                alert('Gagal menghapus riwayat')
+              }
+            })
+        }
+      }
+      
+      function filterByDate() {
+        let startDate = document.getElementById('start-date').value
+        let endDate = document.getElementById('end-date').value
+        let cards = document.querySelectorAll('#all-history-container .history-card')
+      
+        cards.forEach((card) => {
+          let cardDate = card.getAttribute('data-date')
+          if ((!startDate || cardDate >= startDate) && (!endDate || cardDate <= endDate)) {
+            card.style.display = 'block'
+          } else {
+            card.style.display = 'none'
+          }
+        })
+      }
+      
+      function resetFilter() {
+        document.getElementById('start-date').value = ''
+        document.getElementById('end-date').value = ''
+        let cards = document.querySelectorAll('#all-history-container .history-card')
+        cards.forEach((card) => {
+          card.style.display = 'block'
+        })
+      }
+      
+      function toggleDropdown(id) {
+        var content = document.getElementById(id)
+        if (content.style.display === 'block') {
+          content.style.display = 'none'
+        } else {
+          content.style.display = 'block'
+        }
+      }
+      
+      function toggleAccordion(id, btn) {
+        let content = document.getElementById(id)
+        content.classList.toggle('open')
+        btn.classList.toggle('active')
+      }
+      
+      feather.replace()
+    </script>
+  </body>
+</html>

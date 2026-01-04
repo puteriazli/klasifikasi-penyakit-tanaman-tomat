@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Penyakit Tanaman Tomat</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+    <div class="container">
+        <h1>Deteksi Penyakit Tanaman Tomat</h1>
+        <div class="logo">
+            <img src="/static/images/logo.png" alt="Logo / Gambar">
+        </div>
+        <p>Deteksi penyakit tanaman tomatmu sekarang juga</p>
+
+        <!-- Video pratinjau kamera -->
+        <video id="camera" autoplay style="display:none;"></video>
+        <canvas id="canvas" style="display:none;"></canvas>
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <div class="input-container">
+                <input type="file" name="file" accept="image/*" required id="fileInput">
+                <button type="button" class="camera-button" onclick="openCamera()">📸</button>
+            </div>
+
+            <div class="warning-input-container">
+                <label for="descriptionInput" class="input-label">
+            <span style="color: red;">*</span>Deskripsi Gambar (wajib diisi)
+        </label>
+            <input type="text" name="description" placeholder="Tambahkan keterangan atau deskripsi Gambar" required>
+            </div>
+            <button type="submit">Prediksi</button>
+        </form>
+
+        <p></p>
+        <!-- Tombol riwayat dan info di tengah -->
+        <div class="center-buttons">
+            <a href="/history" class="history-link">
+                <button class="history-button" title="Riwayat">
+                    <i class="fas fa-history"></i>
+                </button>
+            </a>
+
+            <!-- Tombol info -->
+            <button class="info-button" onclick="document.getElementById('infoModal').style.display='block'" title="Tentang Website">
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
+
+        <!-- Modal Tentang Sistem -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="document.getElementById('infoModal').style.display='none'">&times;</span>
+            
+                <button class="accordion">Tentang Website</button>
+                <div class="panel">
+                    <p>Website ini digunakan untuk memprediksi penyakit pada daun tomat yang meliputi penyakit <strong>busuk daun, jamur daun, septoria</strong>, dan daun tomat <strong>sehat</strong>.</p>
+                </div>
+            
+                <button class="accordion">Data yang Digunakan</button>
+                <div class="panel">
+                    <p>Dataset daun tomat untuk melatih model diperoleh dari
+                        <a href="https://www.kaggle.com/datasets/farukalam/tomato-leaf-diseases-detection-computer-vision" target="_blank" style="color: blue; text-decoration: none;">Tomato Leaf Diseases Detection - Computer Vision (Kaggle)</a>.
+                        Data pengujian diambil dari lapangan dengan perangkat Redmi Note 9.
+                    </p>
+                </div>
+            
+                <button class="accordion">Cara Penggunaan</button>
+                <div class="panel">
+                    <ol>
+                        <li>Pastikan foto daun tomat berukuran 1:1 atau persegi (square).</li>
+                        <li>Upload foto daun tomat dari tombol <strong>telusuri</strong> atau foto langsung dari kamera dengan menekan tombol 📸 dan atur rasio kamera menjadi 1:1.</li>
+                        <li>Pastikan pencahayaan memadai saat mengambil gambar.</li>
+                        <li>Masukkan keterangan mengenai foto daun tomat pada kolom <strong>tambahkan keterangan</strong>.</li>
+                        <li>Tekan tombol <strong>prediksi</strong> untuk melihat hasil prediksi.</li>
+                        <li>Tekan tombol <i class="fas fa-history" style="margin-right: 4px;"></i> untuk melihat riwayat prediksi.</li>
+                        <li>Tekan <strong>Semua Riwayat</strong> untuk melihat semua riwayat hasil prediksi. Gunakan fitur filtering berdasarkan tanggal untuk mempermudah pencarian.</li>
+                        <li>Tekan <strong>Riwayat Per Kategori Penyakit</strong> lalu tekan <strong>nama kategori penyakit (misal: sehat)</strong> untuk melihat riwayat hasil prediksi berdasarkan jenis penyakit.</li>
+                        <li>Tekan tombol <strong>selengkapnya</strong> untuk melihat semua riwayat prediksi pada salah satu kategori penyakit.</li>
+                        <li>Tekan <strong>gambar</strong> untuk melihat detail mengenai gambar hasil prediksi.</li>
+                        <li>Tekan tombol <strong>tampilkan hasil pengolahan</strong> untuk melihat hasil pengolahan gambar.</li>
+                        <li>Tekan tombol <strong>sembunyikan hasil pengolahan</strong> untuk menutup tampilan hasil pengolahan gambar.</li>
+                    </ol>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Deteksi Penyakit Tanaman Tomat</p>
+            <p>Dibuat oleh <strong>Puteri Amelia Azli</strong></p>
+            <div class="footer-icons">
+                <a href="mailto:puteriazli.it@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/puteri-azli" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/puteriazli" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        // Accordion dropdown
+        let acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                panel.style.display = (panel.style.display === "block") ? "none" : "block";
+            });
+        }
+
+        let video = document.getElementById('camera');
+        let canvas = document.getElementById('canvas');
+        let fileInput = document.getElementById('fileInput');
+
+        function openCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.style.display = "block";
+                    video.srcObject = stream;
+
+                    // Ganti fungsi tombol agar langsung menangkap gambar
+                    document.querySelector('.camera-button').innerText = "📸";
+                    document.querySelector('.camera-button').onclick = function() {
+                        captureImage(stream);
+                    };
+                })
+                .catch(err => {
+                    alert("Kamera tidak dapat diakses: " + err);
+                });
+        }
+
+        function captureImage(stream) {
+            let context = canvas.getContext('2d');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert canvas ke Blob lalu masukkan ke input file
+            canvas.toBlob(blob => {
+                let file = new File([blob], "captured_image.jpg", { type: "image/jpeg" });
+
+                let dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                fileInput.files = dataTransfer.files;
+
+                // Tutup kamera setelah gambar diambil
+                video.srcObject.getTracks().forEach(track => track.stop());
+                video.style.display = "none";
+                document.querySelector('.camera-button').innerText = "📸";
+                document.querySelector('.camera-button').onclick = openCamera;
+            }, "image/jpeg");
+        }
+
+        // Validasi format file sebelum diunggah
+        document.getElementById("fileInput").addEventListener("change", function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let validTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp", "image/heif", "image/heic"];
+                if (!validTypes.includes(file.type)) {
+                    alert("Format file tidak valid! Harap unggah file dengan format gambar (JPG, JPEG, PNG, WEBP, HEIF, HEIC).");
+                    event.target.value = ""; // Reset input file
+                }
+            }
+        });
+
+        // Tutup modal jika diklik di luar area konten
+        window.onclick = function(event) {
+            let modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>  
+</body>
+</html>
