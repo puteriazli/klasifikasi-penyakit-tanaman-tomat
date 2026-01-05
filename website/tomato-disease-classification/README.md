@@ -1,1 +1,0 @@
-# tomato-disease-classification
