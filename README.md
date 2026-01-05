@@ -53,10 +53,10 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
 
 ## 🛠️ Teknologi yang Digunakan
 - Bahasa Pemrograman: Python, HTML, CSS, JavaScript :contentReference[oaicite:0]{index=0}  
-- Computer Vision: :contentReference[oaicite:1]{index=1}  
-- Machine Learning: SVM :contentReference[oaicite:2]{index=2}  
-- Web Framework: Flask :contentReference[oaicite:3]{index=3}  
-- Visualisasi: Matplotlib, Seaborn :contentReference[oaicite:4]{index=4}  
+- Computer Vision 
+- Machine Learning: SVM 
+- Web Framework: Flask 
+- Visualisasi: Matplotlib, Seaborn
 
 ---
 
