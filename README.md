@@ -52,7 +52,7 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
 ---
 
 ## 🛠️ Teknologi yang Digunakan
-- Bahasa Pemrograman: Python, HTML, CSS, JavaScript :contentReference[oaicite:0]{index=0}  
+- Bahasa Pemrograman: Python, HTML, CSS, JavaScript  
 - Computer Vision 
 - Machine Learning: SVM 
 - Web Framework: Flask 
@@ -98,7 +98,6 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
                 index.html
                 more.html
                 results.html
-
 ---
 
 ## ▶️ Cara Menjalankan Proyek
@@ -115,8 +114,12 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
 
 ## 🖥️ Screenshot Web App
 ### Menu Beranda
+<img width="960" height="564" alt="{5B2A8E04-8E78-4FCA-B11B-41D9FA2A2D6F}" src="https://github.com/user-attachments/assets/00cd0ad0-4fe8-46b9-acf0-fcd903944fd5" />
 
 ### Menu Tentang Website
+<img width="960" height="564" alt="{B85BCBDC-8013-42FB-A998-414DC04BB6ED}" src="https://github.com/user-attachments/assets/35bfc9c9-80ee-4fe0-ba71-184948a91b4d" />
+<img width="960" height="564" alt="{E026627A-6869-475E-A5B6-6F38FD6F9385}" src="https://github.com/user-attachments/assets/7a15a599-5bb6-4838-bbfb-06c6f5159c3d" />
+<img width="960" height="564" alt="{9465AE71-7217-4227-B323-9325726B855A}" src="https://github.com/user-attachments/assets/7e7d6521-5247-4d59-b7b0-09db497d11ac" />
 
 ### Menu Hasil Prediksi
 
