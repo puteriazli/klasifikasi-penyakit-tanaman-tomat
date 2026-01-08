@@ -53,7 +53,7 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
 
 ## 🛠️ Teknologi yang Digunakan
 - Bahasa Pemrograman: Python, HTML, CSS, JavaScript  
-- Computer Vision 
+- Computer Vision: OpenCV, 
 - Machine Learning: SVM 
 - Web Framework: Flask 
 - Visualisasi: Matplotlib, Seaborn
@@ -138,11 +138,13 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
 
 ## 📊 Evaluasi Model
 ### Confusion Matrix
+<img width="513" height="470" alt="image" src="https://github.com/user-attachments/assets/221cb743-7f2b-4466-8515-a082d8a31be1" />
 
 ### Classification Report
+<img width="388" height="161" alt="{E0B3C7EA-F13D-4D33-AFF8-7DDCBD251E27}" src="https://github.com/user-attachments/assets/842e55ec-ee52-43a4-a958-264a044c5270" />
 
 ### Accuracy Score
-
+<img width="484" height="484" alt="image" src="https://github.com/user-attachments/assets/827373e0-a487-481f-aad4-9b7e6ecbb419" />
 
 ## 📚 Sumber Dataset
 Dataset citra daun tomat diperoleh dari:
