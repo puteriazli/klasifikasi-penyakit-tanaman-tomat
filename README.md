@@ -53,9 +53,11 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
 
 ## 🛠️ Teknologi yang Digunakan
 - Bahasa Pemrograman: Python, HTML, CSS, JavaScript  
-- Computer Vision: OpenCV, 
+- Computer Vision: OpenCV, image preprocessing, morfologi, kontur
 - Machine Learning: SVM 
-- Web Framework: Flask 
+- Web Framework:
+      --> frontend: HTML, CSS, JavascriptFlask
+      --> backend: Flask
 - Visualisasi: Matplotlib, Seaborn
 
 ---
@@ -118,23 +120,33 @@ Proyek ini dirancang sebagai implementasi end-to-end mulai dari preprocessing ci
 
 ### Menu Tentang Website
 <img width="960" height="564" alt="{B85BCBDC-8013-42FB-A998-414DC04BB6ED}" src="https://github.com/user-attachments/assets/35bfc9c9-80ee-4fe0-ba71-184948a91b4d" />
+
 <img width="960" height="564" alt="{E026627A-6869-475E-A5B6-6F38FD6F9385}" src="https://github.com/user-attachments/assets/7a15a599-5bb6-4838-bbfb-06c6f5159c3d" />
+
 <img width="960" height="564" alt="{9465AE71-7217-4227-B323-9325726B855A}" src="https://github.com/user-attachments/assets/7e7d6521-5247-4d59-b7b0-09db497d11ac" />
 
 ### Menu Hasil Prediksi
+<img width="1920" height="1128" alt="Screenshot 2025-08-27 213201" src="https://github.com/user-attachments/assets/6176cf4d-d15a-485f-9e16-2b071da7d6dd" />
 
 ### Menu Hasil Pengolahan
+<img width="1920" height="1128" alt="Screenshot 2025-08-27 213212" src="https://github.com/user-attachments/assets/a38af4b2-da57-4e12-a9f4-921caafa93e8" />
 
 ### Menu Riwayat
+<img width="1920" height="1128" alt="Screenshot 2025-08-27 213232" src="https://github.com/user-attachments/assets/36d77199-14c5-4391-8dc1-149b68ec7f5e" />
 
 ### Menu Semua Riwayat
+<img width="1920" height="1128" alt="Screenshot 2025-08-28 214453" src="https://github.com/user-attachments/assets/0255f47e-f1cd-4ee3-bc84-56ee708f4b5a" />
 
 ### Menu Riwayat Perkategori
+<img width="1920" height="1128" alt="Screenshot 2025-08-27 213346" src="https://github.com/user-attachments/assets/ad9fdc13-6116-43c5-8268-82bc78147de5" />
+
+<img width="1920" height="1128" alt="Screenshot 2025-08-27 213505" src="https://github.com/user-attachments/assets/beec027e-8ecd-41de-a9f9-86609e63187a" />
 
 ### Menu Selengkapnya
+<img width="1920" height="1128" alt="Screenshot 2025-08-28 180228" src="https://github.com/user-attachments/assets/e9047fff-86fa-480d-adf2-3fa6f80cf1aa" />
 
 ### Menu Detail Gambar
-
+<img width="1920" height="1128" alt="Screenshot 2025-08-28 175752" src="https://github.com/user-attachments/assets/269a227f-57b5-4f2f-929d-4292f2e70206" />
 
 ## 📊 Evaluasi Model
 ### Confusion Matrix
