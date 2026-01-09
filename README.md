@@ -9,6 +9,14 @@ The goal is to provide a simple and practical solution for identifying tomato pl
 
 ---
 
+## Demo
+A short video demonstration of the system can be found here:  
+👉 **YouTube Demo:** https://www.youtube.com/watch?v=YOUR_DEMO_LINK
+
+The demo shows the full workflow, including image upload, disease classification, and result display through the web application.
+
+---
+
 ## Problem Statement
 Tomato plants are vulnerable to various leaf diseases that often show similar visual symptoms. Manual identification is time-consuming and depends heavily on experience.
 
@@ -93,6 +101,43 @@ The web app integrates preprocessing, feature extraction, and prediction into a 
 ---
 
 ## Project Structure
+│   LICENSE
+│
+├───algoritma machine learning
+│       model_svm.ipynb
+│
+└───website
+    └───tomato-disease-classification
+        │   app.py
+        │   requirements.txt
+        │
+        ├───model
+        │       scaler.pkl
+        │       svm_model.pkl
+        │
+        ├───static
+        │   ├───css
+        │   │       details.css
+        │   │       history.css
+        │   │       index.css
+        │   │       more.css
+        │   │       results.css
+        │   │
+        │   ├───feature extraction
+        │   │       dataset_tomat_features.npz
+        │   │
+        │   ├───images
+        │   │       logo.png
+        │   │
+        │   └───uploads
+        │           uploads.txt
+        │
+        └───templates
+                details.html
+                history.html
+                index.html
+                more.html
+                results.html
 
 ---
 
@@ -128,5 +173,5 @@ This project demonstrates:
 ---
 
 ## Author
-**[Puteri Amelia Azli]**  
+**Puteri Amelia Azli**  
 Machine Learning | Computer Vision | Data Science
