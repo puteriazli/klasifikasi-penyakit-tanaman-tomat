@@ -11,7 +11,7 @@ The goal is to provide a simple and practical solution for identifying tomato pl
 
 ## Demo
 A short video demonstration of the system can be found here:  
-👉 **YouTube Demo:** https://www.youtube.com/watch?v=YOUR_DEMO_LINK
+👉 **YouTube Demo:** https://youtu.be/QrW2xr9Nk54?si=qgHvAV1qWj_3svk7
 
 The demo shows the full workflow, including image upload, disease classification, and result display through the web application.
 
@@ -82,15 +82,20 @@ This approach was chosen to balance performance, interpretability, and computati
 ## Model Evaluation
 Model performance is evaluated using:
 - Accuracy
+
   <img width="484" height="484" alt="image" src="https://github.com/user-attachments/assets/827373e0-a487-481f-aad4-9b7e6ecbb419" />
   
 - Confusion matrix
+
   <img width="513" height="470" alt="image" src="https://github.com/user-attachments/assets/221cb743-7f2b-4466-8515-a082d8a31be1" />
 
 - Classification report (precision, recall, F1-score)
+
   <img width="388" height="161" alt="{E0B3C7EA-F13D-4D33-AFF8-7DDCBD251E27}" src="https://github.com/user-attachments/assets/842e55ec-ee52-43a4-a958-264a044c5270" />
   
 - Cross-validation scores
+  
+  <img width="585" height="457" alt="image" src="https://github.com/user-attachments/assets/017c7b10-3456-45a7-8310-553c419930f7" />
 
 Both training and testing accuracy are compared to check model stability and overfitting.
 
