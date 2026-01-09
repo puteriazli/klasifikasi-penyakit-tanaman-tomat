@@ -82,8 +82,14 @@ This approach was chosen to balance performance, interpretability, and computati
 ## Model Evaluation
 Model performance is evaluated using:
 - Accuracy
+  <img width="484" height="484" alt="image" src="https://github.com/user-attachments/assets/827373e0-a487-481f-aad4-9b7e6ecbb419" />
+  
 - Confusion matrix
+  <img width="513" height="470" alt="image" src="https://github.com/user-attachments/assets/221cb743-7f2b-4466-8515-a082d8a31be1" />
+
 - Classification report (precision, recall, F1-score)
+  <img width="388" height="161" alt="{E0B3C7EA-F13D-4D33-AFF8-7DDCBD251E27}" src="https://github.com/user-attachments/assets/842e55ec-ee52-43a4-a958-264a044c5270" />
+  
 - Cross-validation scores
 
 Both training and testing accuracy are compared to check model stability and overfitting.
@@ -171,6 +177,57 @@ This project demonstrates:
 - Improved model explainability
 
 ---
+
+## 🖥️ Web Application Screenshots
+
+### Home Page
+<img width="960" height="564" alt="Home Page" src="https://github.com/user-attachments/assets/00cd0ad0-4fe8-46b9-acf0-fcd903944fd5" />
+
+---
+
+### About Page
+<img width="960" height="564" alt="About Page" src="https://github.com/user-attachments/assets/35bfc9c9-80ee-4fe0-ba71-184948a91b4d" />
+
+<img width="960" height="564" alt="About Page - Additional Section" src="https://github.com/user-attachments/assets/7a15a599-5bb6-4838-bbfb-06c6f5159c3d" />
+
+<img width="960" height="564" alt="About Page - Additional Section" src="https://github.com/user-attachments/assets/7e7d6521-5247-4d59-b7b0-09db497d11ac" />
+
+---
+
+### Prediction Results
+<img width="1920" height="1128" alt="Prediction Results Page" src="https://github.com/user-attachments/assets/6176cf4d-d15a-485f-9e16-2b071da7d6dd" />
+
+---
+
+### Processing Results
+<img width="1920" height="1128" alt="Processing Results Page" src="https://github.com/user-attachments/assets/a38af4b2-da57-4e12-a9f4-921caafa93e8" />
+
+---
+
+### Prediction History
+<img width="1920" height="1128" alt="Prediction History Page" src="https://github.com/user-attachments/assets/36d77199-14c5-4391-8dc1-149b68ec7f5e" />
+
+---
+
+### Full History
+<img width="1920" height="1128" alt="Full Prediction History Page" src="https://github.com/user-attachments/assets/0255f47e-f1cd-4ee3-bc84-56ee708f4b5a" />
+
+---
+
+### History by Category
+<img width="1920" height="1128" alt="Category-Based History Page" src="https://github.com/user-attachments/assets/ad9fdc13-6116-43c5-8268-82bc78147de5" />
+
+<img width="1920" height="1128" alt="Category-Based History Page - Additional View" src="https://github.com/user-attachments/assets/beec027e-8ecd-41de-a9f9-86609e63187a" />
+
+---
+
+### More Information
+<img width="1920" height="1128" alt="More Information Page" src="https://github.com/user-attachments/assets/e9047fff-86fa-480d-adf2-3fa6f80cf1aa" />
+
+---
+
+### Image Detail View
+<img width="1920" height="1128" alt="Image Detail Page" src="https://github.com/user-attachments/assets/269a227f-57b5-4f2f-929d-4292f2e70206" />
 
 ## Author
 **Puteri Amelia Azli**  
