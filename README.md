@@ -112,6 +112,7 @@ The web app integrates preprocessing, feature extraction, and prediction into a 
 ---
 
 ## Project Structure
+'''
 │   LICENSE
 │
 ├───algoritma machine learning
@@ -149,6 +150,7 @@ The web app integrates preprocessing, feature extraction, and prediction into a 
                 index.html
                 more.html
                 results.html
+'''
 
 ---
 
